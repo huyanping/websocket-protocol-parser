@@ -1,0 +1,13 @@
+{
+  "name": "jenner/websocket_protocol_parser",
+  "description": "websocket protocol parser",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jenner",
+      "email": "hypxm@qq.com",
+      "homepage": "http://www.huyanping.cn"
+    }
+  ]
+}
