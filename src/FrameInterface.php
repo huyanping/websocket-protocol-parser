@@ -12,12 +12,12 @@ namespace Jenner\WebSocket;
 interface FrameInterface
 {
     /**
-     * Add incoming data to the frame from peer
+     * 添加到缓存
      * @param string
      */
     function addBuffer($buf);
     /**
-     * Is this the final frame in a fragmented message?
+     * 在分包中，是否是最后一针
      * @return bool
      */
     function isFinal();
@@ -31,12 +31,28 @@ interface FrameInterface
      */
     function getOpcode();
     /**
-     * @return int
-     */
-    //function getReceivedPayloadLength();
-    /**
      * 32-big string
      * @return string
      */
     function getMaskingKey();
+    /**
+     * 是否为分包
+     * @return bool
+     */
+    function isCoalesced();
+    /**
+     * 获取payload长度
+     * @return int
+     */
+    function getPayloadLength();
+    /**
+     * 获取payload数据
+     * @return string
+     */
+    function getPayload();
+    /**
+     * 获取二进制数据
+     * @return string
+     */
+    function getContents();
 }
