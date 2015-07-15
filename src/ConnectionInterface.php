@@ -11,7 +11,8 @@ namespace Jenner\WebSocket;
 
 interface ConnectionInterface
 {
-    public function send($data);
-    public function close();
+    public function send($client_id, $data);
+    public function receive($client_id, $data);
+    public function close($client_id);
 
 }

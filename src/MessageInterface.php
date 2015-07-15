@@ -11,15 +11,22 @@ namespace Jenner\WebSocket;
 
 interface MessageInterface
 {
-
+    /**
+     * 接收数据包
+     * @param $client_id
+     * @param $data
+     * @return mixed
+     */
+    public function append($client_id, $data);
 
     /**
-     * @param FrameInterface $fragment
-     * @return MessageInterface
+     * 处理粘包
+     * 回调$callback
+     * @param $data
+     * @return array array('status'=>boolean, 'message'=>string, 'last'=>string)
+     * status = true 需要回调
+     * status = false 不需要回调
+     * @throws \Exception 无法处理的错误，抛出异常
      */
-    function addFrame(FrameInterface $fragment);
-    /**
-     * @return int
-     */
-    function getOpcode();
+    public function checkPackage(ConnectionInterface $server, $data);
 }
